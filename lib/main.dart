@@ -1,14 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:tasks_app/services/shared_pref_services.dart';
 import 'package:tasks_app/ui/login_screen/login_screen_view.dart';
 import 'package:tasks_app/utiles/app_colors.dart';
 import 'package:tasks_app/utiles/app_routes.dart';
+import 'package:tasks_app/utiles/bloc_observer.dart';
 
-void main() {
-  runApp(const MyApp());
+void main() async{
+  Bloc.observer = MyBlocObserver();
+  final prefs = await SharedPreferences.getInstance();
+  final sharedPrefServices = SharedPrefServices(prefs);
+
+  runApp(MyApp(sharedPrefServices));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  final SharedPrefServices sharedPrefServices;
+
+  const MyApp(this.sharedPrefServices, {super.key});
 
   // This widget is the root of your application.
   @override
@@ -21,7 +31,7 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: AppRoutes.loginScreen,
       routes: {
-        AppRoutes.loginScreen : (context) => LoginScreen(),
+        AppRoutes.loginScreen : (context) => LoginScreen(sharedPrefServices),
       },
     );
   }

@@ -1,18 +1,37 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:tasks_app/services/shared_pref_services.dart';
 import 'package:tasks_app/ui/custom_widgets/custom_elevated_button.dart';
 import 'package:tasks_app/ui/custom_widgets/custom_text_form_field.dart';
+import 'package:tasks_app/ui/login_screen/login_screen_cubit/login_screen_view_model_cubit.dart';
 import 'package:tasks_app/utiles/app_fonts.dart';
 import 'package:tasks_app/utiles/app_images.dart';
 
 import '../../utiles/app_colors.dart';
 
-class LoginScreen extends StatelessWidget {
-  const LoginScreen({super.key});
+class LoginScreen extends StatefulWidget {
+  final SharedPrefServices sharedPrefServices;
+  LoginScreen(this.sharedPrefServices,{super.key});
+
+  @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
+
+  TextEditingController email = TextEditingController();
+  TextEditingController password = TextEditingController();
+
 
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
     var height = MediaQuery.of(context).size.height;
+    return BlocProvider(
+  create: (context) => LoginScreenViewModelCubit(widget.sharedPrefServices),
+  child: BlocBuilder<LoginScreenViewModelCubit, LoginScreenViewModelState>(
+    buildWhen: (previous, current) => current is LoginScreenViewModelShowHidePassword,
+  builder: (context, state) {
     return Scaffold(
       body: Center(
         child: Column(
@@ -40,6 +59,7 @@ class LoginScreen extends StatelessWidget {
                   Customtextformfield(
                     prefixIcon: AppImages.emailIconImage,
                     labelText: "Email",
+                    textEditingController: email,
                     validate: (value) {
                       return null;
                     },
@@ -48,11 +68,14 @@ class LoginScreen extends StatelessWidget {
                   ),
                   SizedBox(height: height * 0.03),
                   Customtextformfield(
+                    textEditingController: password,
                     prefixIcon: AppImages.lockIconImage,
                     isSuffixIcon: true,
                     suffixIcon: AppImages.eyeIconImage,
-                    suffixIconOnPress: () {},
-                    password: true,
+                    suffixIconOnPress: () {
+                      context.read<LoginScreenViewModelCubit>().showHidePassword();
+                    },
+                    password: context.read<LoginScreenViewModelCubit>().showPassword,
                     labelText: "Password",
                     validate: (value) {
                       return null;
@@ -63,7 +86,9 @@ class LoginScreen extends StatelessWidget {
                   SizedBox(height: height * 0.03),
                   CustomElevatedButton(
                     content: Text("Login", style: AppFonts.bold16White),
-                    onPress: () {},
+                    onPress: () {
+                      context.read<LoginScreenViewModelCubit>().login(email.text, password.text);
+                    },
 
                   ),
                   SizedBox(height: height*0.03,),
@@ -75,5 +100,8 @@ class LoginScreen extends StatelessWidget {
         ),
       ),
     );
+  },
+),
+);
   }
 }
