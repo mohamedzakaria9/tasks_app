@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tasks_app/ui/custom_widgets/custom_elevated_button.dart';
 import 'package:tasks_app/ui/custom_widgets/custom_text_form_field.dart';
 import 'package:tasks_app/utiles/app_fonts.dart';
 import 'package:tasks_app/utiles/app_images.dart';
@@ -21,37 +22,52 @@ class LoginScreen extends StatelessWidget {
             Text("TaskFlow", style: AppFonts.extraBold36Primary),
             Text("Elevate your daily focus", style: AppFonts.regular14Grey),
             Container(
-              margin: EdgeInsets.symmetric(vertical: height*0.02,horizontal: width*0.04),
-              padding: EdgeInsets.symmetric(vertical: height*0.03,horizontal: width*0.06),
+              margin: EdgeInsets.symmetric(
+                vertical: height * 0.02,
+                horizontal: width * 0.04,
+              ),
+              padding: EdgeInsets.symmetric(
+                vertical: height * 0.03,
+                horizontal: width * 0.06,
+              ),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(16),
-                color: AppColors.whiteColor
+                color: AppColors.whiteColor,
               ),
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   Customtextformfield(
                     prefixIcon: AppImages.emailIconImage,
                     labelText: "Email",
-                    validate: (value) {return null;},
+                    validate: (value) {
+                      return null;
+                    },
                     prefixIconColor: AppColors.lightGreyColor,
                     fillColor: AppColors.primaryLightColor,
                   ),
-                  SizedBox(height: height*0.03,),
+                  SizedBox(height: height * 0.03),
                   Customtextformfield(
                     prefixIcon: AppImages.lockIconImage,
                     isSuffixIcon: true,
                     suffixIcon: AppImages.eyeIconImage,
-                    suffixIconOnPress: () {
-
-                    },
+                    suffixIconOnPress: () {},
                     password: true,
                     labelText: "Password",
-                    validate: (value) {return null;},
+                    validate: (value) {
+                      return null;
+                    },
                     prefixIconColor: AppColors.lightGreyColor,
                     fillColor: AppColors.primaryLightColor,
                   ),
+                  SizedBox(height: height * 0.03),
+                  CustomElevatedButton(
+                    content: Text("Login", style: AppFonts.bold16White),
+                    onPress: () {},
 
+                  ),
+                  SizedBox(height: height*0.03,),
+                  Text("Forgot Password?",style: AppFonts.bold14Grey,textAlign: TextAlign.center,)
                 ],
               ),
             ),

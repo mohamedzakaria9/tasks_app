@@ -13,9 +13,14 @@ class AppFonts {
     fontWeight: FontWeight.w400,
     color: Color(0xff464555),
   );
-  static const TextStyle regular16White = TextStyle(
+  static const TextStyle bold14Grey = TextStyle(
+    fontSize: 14,
+    fontWeight: FontWeight.bold,
+    color: Color(0xff464555),
+  );
+  static const TextStyle bold16White = TextStyle(
     fontSize: 16,
-    fontWeight: FontWeight.w400,
+    fontWeight: FontWeight.bold,
     color: Color(0xffffffff),
   );
 }
