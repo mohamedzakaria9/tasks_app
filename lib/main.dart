@@ -27,7 +27,10 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Task App',
       theme: ThemeData(
-        scaffoldBackgroundColor: AppColors.primaryLightColor
+        scaffoldBackgroundColor: AppColors.primaryLightColor,
+        appBarTheme: AppBarTheme(
+          backgroundColor: AppColors.primaryLightColor,
+        )
       ),
       initialRoute: sharedPrefServices.token == null ? AppRoutes.loginScreen : AppRoutes.homeScreen,
       routes: {

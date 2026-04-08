@@ -20,4 +20,7 @@ class ApiManager {
       return null;
     }
   }
+  // static Future<http.Response?> getTasks(){
+  //   Uri url = Uri.parse(ApiConstants.baseUrl+ApiEndpoints.tasks)
+  // }
 }

@@ -23,4 +23,19 @@ class AppFonts {
     fontWeight: FontWeight.bold,
     color: Color(0xffffffff),
   );
+  static const TextStyle bold32Primary = TextStyle(
+    fontSize: 32,
+    fontWeight: FontWeight.bold,
+    color: AppColors.primaryColor,
+  );
+  static const TextStyle regular18Black = TextStyle(
+    fontSize: 18,
+    fontWeight: FontWeight.w400,
+    color: Color(0xff000000),
+  );
+  static const TextStyle bold18Black = TextStyle(
+    fontSize: 18,
+    fontWeight: FontWeight.bold,
+    color: Color(0xff000000),
+  );
 }

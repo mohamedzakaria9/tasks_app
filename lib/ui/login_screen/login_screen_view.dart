@@ -37,7 +37,7 @@ class _LoginScreenState extends State<LoginScreen> {
               state is LoginScreenViewModelInitial ||
               state is LoginScreenViewModelShowHidePassword) {
             return Scaffold(
-              body: LoginForm(email: email, password: password),
+              body: SingleChildScrollView(child: LoginForm(email: email, password: password)),
             );
           } else {
             return SizedBox.shrink();
