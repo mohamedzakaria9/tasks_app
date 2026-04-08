@@ -13,7 +13,7 @@ class LoginScreenViewModelCubit extends Cubit<LoginScreenViewModelState> {
   bool showPassword = true;
 
   LoginScreenViewModelCubit(this.sharedPrefServices)
-    : super(LoginScreenViewModelLoading());
+    : super(LoginScreenViewModelInitial());
 
   void showHidePassword() {
     showPassword = !showPassword;
@@ -37,6 +37,7 @@ class LoginScreenViewModelCubit extends Cubit<LoginScreenViewModelState> {
             email: loginResponse.user!.email!,
             id: loginResponse.user!.id!,
           );
+          await Future.delayed(const Duration(seconds: 2));
           emit(LoginScreenViewModelSuccessfull(loginResponse));
         }else{
           emit(LoginScreenViewModelError("Something Went Wrong"));

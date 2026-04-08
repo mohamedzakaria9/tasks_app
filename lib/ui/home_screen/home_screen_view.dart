@@ -11,9 +11,9 @@ class HomeScreenView extends StatelessWidget {
       body: Center(
         child: Column(
           children: [
-            Text(sharedPrefServices.name!),
-            Text(sharedPrefServices.email!),
-            Text("${sharedPrefServices.id}"),
+            Text("this is the name ${sharedPrefServices.name!}"),
+            Text("this is the email ${sharedPrefServices.email!}"),
+            Text("this is the id ${sharedPrefServices.id}"),
           ],
         ),
       ),
