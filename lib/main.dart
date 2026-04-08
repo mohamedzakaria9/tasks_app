@@ -21,8 +21,6 @@ class MyApp extends StatelessWidget {
   final SharedPrefServices sharedPrefServices;
 
   const MyApp(this.sharedPrefServices, {super.key});
-
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -31,7 +29,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         scaffoldBackgroundColor: AppColors.primaryLightColor
       ),
-      initialRoute: AppRoutes.loginScreen,
+      initialRoute: sharedPrefServices.token == null ? AppRoutes.loginScreen : AppRoutes.homeScreen,
       routes: {
         AppRoutes.loginScreen : (context) => LoginScreen(sharedPrefServices),
         AppRoutes.homeScreen: (context) => HomeScreenView(sharedPrefServices)
