@@ -34,7 +34,9 @@ class _HomeScreenViewState extends State<HomeScreenView> {
     var width = MediaQuery.of(context).size.width;
     var height = MediaQuery.of(context).size.height;
     return BlocProvider(
-      create: (context) => HomeScreenViewModelCubit(sharedPrefServices: widget.sharedPrefServices),
+      create: (context) => HomeScreenViewModelCubit(
+        sharedPrefServices: widget.sharedPrefServices,
+      ),
       child: Scaffold(
         appBar: AppBar(
           title: Text("My Tasks", style: AppFonts.bold32Primary),
@@ -65,11 +67,13 @@ class _HomeScreenViewState extends State<HomeScreenView> {
                       validate: (value) {
                         return null;
                       },
-                      onChange: (value){
-                        context.read<HomeScreenViewModelCubit>().searchTasks(value!);
+                      onChange: (value) {
+                        context.read<HomeScreenViewModelCubit>().searchTasks(
+                          value!,
+                        );
                       },
                     );
-                  }
+                  },
                 ),
                 Text("Status", style: AppFonts.bold14Grey),
                 FilterShipGroup(
@@ -81,38 +85,49 @@ class _HomeScreenViewState extends State<HomeScreenView> {
                   options: ["All", "Low", "Medium", "High"],
                   selectedIndex: selectedIndexPriority,
                 ),
-                BlocConsumer<HomeScreenViewModelCubit,HomeScreenViewModelState>(builder: (context, state) {
-                  if(state is HomeScreenViewModelSuccess){
-                    return SizedBox(
-                      height: height * 0.6,
-                      child: ListView.separated(
-                        itemBuilder: (context, index) {
-                          return TaskCard(taskResponse: state.tasksList[index]);
-                        },
-                        separatorBuilder: (context, index) {
-                          return SizedBox(height: height * 0.02);
-                        },
-                        itemCount: state.tasksList.length,
-                      ),
-                    );
-                  }
-                  else if (state is HomeScreenViewModelError){
-                    return Center(
-                      child: Text(state.errorMessage),
-                    );
-                  }else{
-                    return Center(
-                      child: CircularProgressIndicator(),
-                    );
-                  }
-                },listener: (context, state) {
-                  if(state is HomeScreenViewModelError){
-                    Navigator.pushReplacementNamed(context, AppRoutes.loginScreen);
-                  }
-                },),
+                BlocConsumer<
+                  HomeScreenViewModelCubit,
+                  HomeScreenViewModelState
+                >(
+                  builder: (context, state) {
+                    if (state is HomeScreenViewModelSuccess) {
+                      return SizedBox(
+                        height: height * 0.6,
+                        child: ListView.separated(
+                          itemBuilder: (context, index) {
+                            return TaskCard(
+                              taskResponse: state.tasksList[index],
+                            );
+                          },
+                          separatorBuilder: (context, index) {
+                            return SizedBox(height: height * 0.02);
+                          },
+                          itemCount: state.tasksList.length,
+                        ),
+                      );
+                    } else if (state is HomeScreenViewModelError) {
+                      return Center(child: Text(state.errorMessage));
+                    } else {
+                      return Center(child: CircularProgressIndicator());
+                    }
+                  },
+                  listener: (context, state) {
+                    if (state is HomeScreenViewModelError) {
+                      Navigator.pushReplacementNamed(
+                        context,
+                        AppRoutes.loginScreen,
+                      );
+                    }
+                  },
+                ),
               ],
             ),
           ),
+        ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {},
+          backgroundColor: AppColors.primaryColor,
+          child: Icon(Icons.add, color: AppColors.whiteColor),
         ),
       ),
     );
