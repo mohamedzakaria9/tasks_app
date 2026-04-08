@@ -21,7 +21,22 @@ class HomeScreenViewModelCubit extends Cubit<HomeScreenViewModelState> {
     : super(HomeScreenViewModelLoading()) {
     getTasks();
   }
-
+  void searchTasks(String query) {
+    List<TaskResponse> filteredTasks = [];
+    query = query.toLowerCase().trim().replaceAll(" ", "").replaceAll("-", "");
+    if (query.isEmpty) {
+      emit(HomeScreenViewModelSuccess(allTasks));
+      return;
+    }
+    for (var task in allTasks) {
+      String title = task.title!.toLowerCase().replaceAll(" ", "").replaceAll("-", "");
+      String description = task.description!.toLowerCase().replaceAll(" ", "").replaceAll("-", "");
+      if (title.contains(query) || description.contains(query)) {
+        filteredTasks.add(task);
+      }
+    }
+    emit(HomeScreenViewModelSuccess(filteredTasks));
+  }
   void filterTasks(int status, int priority){
     selectedStatus = status;
     selectedPriority = priority;

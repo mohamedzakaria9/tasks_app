@@ -11,6 +11,7 @@ import 'package:tasks_app/ui/home_screen/task_card.dart';
 import 'package:tasks_app/ui/login_screen/login_screen_cubit/login_screen_view_model_cubit.dart';
 import 'package:tasks_app/utiles/app_fonts.dart';
 import 'package:tasks_app/utiles/app_images.dart';
+import 'package:tasks_app/utiles/app_routes.dart';
 
 import '../../utiles/app_colors.dart';
 
@@ -42,11 +43,6 @@ class _HomeScreenViewState extends State<HomeScreenView> {
               onPressed: () {
                 ///todo:
                 ///implement the logout functionality
-                print("button pressed");
-                ApiManager.getTasks(
-                  widget.sharedPrefServices.token!,
-                  widget.sharedPrefServices.id!,
-                );
               },
               icon: Image.asset(AppImages.logoutIcon),
             ),
@@ -59,14 +55,21 @@ class _HomeScreenViewState extends State<HomeScreenView> {
               crossAxisAlignment: .start,
               children: [
                 SizedBox(height: height * 0.01),
-                Customtextformfield(
-                  borderColor: AppColors.transparentColor,
-                  prefixIcon: AppImages.searchIcon,
-                  prefixIconColor: AppColors.lightGreyColor,
-                  labelText: "Search tasks...",
-                  validate: (value) {
-                    return null;
-                  },
+                Builder(
+                  builder: (context) {
+                    return Customtextformfield(
+                      borderColor: AppColors.transparentColor,
+                      prefixIcon: AppImages.searchIcon,
+                      prefixIconColor: AppColors.lightGreyColor,
+                      labelText: "Search tasks...",
+                      validate: (value) {
+                        return null;
+                      },
+                      onChange: (value){
+                        context.read<HomeScreenViewModelCubit>().searchTasks(value!);
+                      },
+                    );
+                  }
                 ),
                 Text("Status", style: AppFonts.bold14Grey),
                 FilterShipGroup(
@@ -78,7 +81,7 @@ class _HomeScreenViewState extends State<HomeScreenView> {
                   options: ["All", "Low", "Medium", "High"],
                   selectedIndex: selectedIndexPriority,
                 ),
-                BlocBuilder<HomeScreenViewModelCubit,HomeScreenViewModelState>(builder: (context, state) {
+                BlocConsumer<HomeScreenViewModelCubit,HomeScreenViewModelState>(builder: (context, state) {
                   if(state is HomeScreenViewModelSuccess){
                     return SizedBox(
                       height: height * 0.6,
@@ -101,6 +104,10 @@ class _HomeScreenViewState extends State<HomeScreenView> {
                     return Center(
                       child: CircularProgressIndicator(),
                     );
+                  }
+                },listener: (context, state) {
+                  if(state is HomeScreenViewModelError){
+                    Navigator.pushReplacementNamed(context, AppRoutes.loginScreen);
                   }
                 },),
               ],
