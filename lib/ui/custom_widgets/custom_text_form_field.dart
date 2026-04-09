@@ -7,6 +7,7 @@ import '../../utiles/app_fonts.dart';
 
 typedef validation = String? Function(String?);
 typedef OnChange = void Function(String?);
+typedef GestureTapCallback = void Function();
 
 class Customtextformfield extends StatelessWidget {
   Color borderColor;
@@ -23,6 +24,8 @@ class Customtextformfield extends StatelessWidget {
   GestureTapCallback? suffixIconOnPress;
   Color? fillColor;
   OnChange? onChange;
+  bool readOnly;
+  GestureTapCallback ? onTap;
   Customtextformfield({
     this.borderColor = AppColors.lightGreyColor,
     required this.prefixIcon,
@@ -37,13 +40,16 @@ class Customtextformfield extends StatelessWidget {
     this.maxLines,
     this.suffixIconOnPress,
     this.fillColor,
-    this.onChange
+    this.onChange,
+    this.readOnly = false,
+    this.onTap
   });
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-
+      onTap: onTap,
+      readOnly: readOnly,
       maxLines: maxLines ?? 1,
       controller: textEditingController,
       onChanged: onChange,

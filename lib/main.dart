@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tasks_app/services/shared_pref_services.dart';
+import 'package:tasks_app/ui/add_task_screen/add_task_screen_view.dart';
 import 'package:tasks_app/ui/home_screen/home_screen_view.dart';
 import 'package:tasks_app/ui/login_screen/login_screen_view.dart';
 import 'package:tasks_app/utiles/app_colors.dart';
@@ -29,13 +30,17 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         scaffoldBackgroundColor: AppColors.primaryLightColor,
         appBarTheme: AppBarTheme(
+          iconTheme: IconThemeData(
+            color: AppColors.primaryColor
+          ),
           backgroundColor: AppColors.primaryLightColor,
         )
       ),
       initialRoute: sharedPrefServices.token == null ? AppRoutes.loginScreen : AppRoutes.homeScreen,
       routes: {
         AppRoutes.loginScreen : (context) => LoginScreen(sharedPrefServices),
-        AppRoutes.homeScreen: (context) => HomeScreenView(sharedPrefServices)
+        AppRoutes.homeScreen: (context) => HomeScreenView(sharedPrefServices),
+        AppRoutes.addTaskScreen: (context) => AddTaskScreenView(sharedPrefServices)
       },
     );
   }

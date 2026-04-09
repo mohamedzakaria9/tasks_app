@@ -6,4 +6,6 @@ class AppImages {
   static const logoutIcon = "assets/images/LogoutIcon.png";
   static const searchIcon = "assets/images/SearchIcon.png";
   static const dateIcon = "assets/images/DateIcon.png";
+  static const writingIcon = "assets/images/WritingIcon.png";
+  static const doneIcon = "assets/images/DoneIcon.png";
 }

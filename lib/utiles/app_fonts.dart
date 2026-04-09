@@ -38,4 +38,9 @@ class AppFonts {
     fontWeight: FontWeight.bold,
     color: Color(0xff000000),
   );
+  static const TextStyle regular36black = TextStyle(
+    fontSize: 36,
+    fontWeight: FontWeight.w400,
+    color: Color(0xff000000),
+  );
 }

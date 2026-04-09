@@ -125,7 +125,9 @@ class _HomeScreenViewState extends State<HomeScreenView> {
           ),
         ),
         floatingActionButton: FloatingActionButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pushNamed(context, AppRoutes.addTaskScreen);
+          },
           backgroundColor: AppColors.primaryColor,
           child: Icon(Icons.add, color: AppColors.whiteColor),
         ),
