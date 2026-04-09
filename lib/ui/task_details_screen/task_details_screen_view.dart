@@ -28,7 +28,13 @@ class TaskDetailsScreenView extends StatelessWidget {
           title: Text("Task Details", style: AppFonts.bold32Primary),
           actions: [
             IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushReplacementNamed(
+                  context,
+                  AppRoutes.addTaskScreen,
+                  arguments: task,
+                );
+              },
               icon: ImageIcon(AssetImage(AppImages.editIcon)),
             ),
           ],

@@ -81,4 +81,30 @@ class ApiManager {
       return null;
     }
   }
+
+  static Future<http.Response?> updateTask(String token, int taskId, TaskResponse task) async {
+    try {
+      Uri url = Uri.parse("${ApiConstants.baseUrl}${ApiEndpoints.tasks}/$taskId");
+      var response = await http.put(
+        url,
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": "Bearer $token",
+        },
+        body: jsonEncode({
+          "title": task.title,
+          "description": task.description,
+          "status": task.status,
+          "priority": task.priority,
+          "dueDate": task.dueDate,
+          "assignedTo": task.assignedTo,
+          "userId": task.assignedTo,
+        }),
+      );
+      return response;
+    } catch (e) {
+      print(e);
+      return null;
+    }
+  }
 }
