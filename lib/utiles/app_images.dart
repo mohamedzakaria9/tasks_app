@@ -8,4 +8,6 @@ class AppImages {
   static const dateIcon = "assets/images/DateIcon.png";
   static const writingIcon = "assets/images/WritingIcon.png";
   static const doneIcon = "assets/images/DoneIcon.png";
+  static const editIcon = "assets/images/EditIcon.png";
+  static const deleteIcon = "assets/images/DeleteIcon.png";
 }

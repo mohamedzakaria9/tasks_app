@@ -43,4 +43,9 @@ class AppFonts {
     fontWeight: FontWeight.w400,
     color: Color(0xff000000),
   );
+  static const TextStyle bold16Red = TextStyle(
+    fontSize: 16,
+    fontWeight: FontWeight.bold,
+    color: AppColors.lightRedColor
+  );
 }

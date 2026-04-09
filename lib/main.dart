@@ -5,6 +5,7 @@ import 'package:tasks_app/services/shared_pref_services.dart';
 import 'package:tasks_app/ui/add_task_screen/add_task_screen_view.dart';
 import 'package:tasks_app/ui/home_screen/home_screen_view.dart';
 import 'package:tasks_app/ui/login_screen/login_screen_view.dart';
+import 'package:tasks_app/ui/task_details_screen/task_details_screen_view.dart';
 import 'package:tasks_app/utiles/app_colors.dart';
 import 'package:tasks_app/utiles/app_routes.dart';
 import 'package:tasks_app/utiles/bloc_observer.dart';
@@ -40,7 +41,8 @@ class MyApp extends StatelessWidget {
       routes: {
         AppRoutes.loginScreen : (context) => LoginScreen(sharedPrefServices),
         AppRoutes.homeScreen: (context) => HomeScreenView(sharedPrefServices),
-        AppRoutes.addTaskScreen: (context) => AddTaskScreenView(sharedPrefServices)
+        AppRoutes.addTaskScreen: (context) => AddTaskScreenView(sharedPrefServices),
+        AppRoutes.taskDetailsScreen : (context) => TaskDetailsScreenView()
       },
     );
   }
