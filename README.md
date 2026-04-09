@@ -28,17 +28,17 @@ The project uses `flutter_bloc` (Cubit pattern), `http` for API calls, and `shar
 - Displays task cards with title, description, status, due date, and priority.
 - Real-time search over loaded tasks.
 - Chip-based filtering:
-  - Status: `All`, `Todo`, `In Progress`, `Done`
-  - Priority: `All`, `Low`, `Medium`, `High`
+    - Status: `All`, `Todo`, `In Progress`, `Done`
+    - Priority: `All`, `Low`, `Medium`, `High`
 
 ### Task Management
 
 - **Add Task** with:
-  - Title
-  - Description
-  - Status
-  - Priority
-  - Due date
+    - Title
+    - Description
+    - Status
+    - Priority
+    - Due date
 - **Edit Task** from task details screen.
 - **Delete Task** from task details screen.
 - Success and failure feedback using SnackBars and state-driven UI.
@@ -109,39 +109,39 @@ flutter run
 Use these steps to run the app on a real Android device.
 
 1. **Enable Developer Options and USB Debugging**
-   - On your phone: Settings -> About phone -> tap Build number 7 times.
-   - Open Developer options and enable USB debugging.
+    - On your phone: Settings -> About phone -> tap Build number 7 times.
+    - Open Developer options and enable USB debugging.
 
 2. **Connect your phone**
-   - Connect via USB.
-   - Accept the RSA debugging prompt on the device.
+    - Connect via USB.
+    - Accept the RSA debugging prompt on the device.
 
 3. **Verify Flutter can see the device**
-   ```bash
+```bash
    flutter devices
-   ```
-   Confirm your device appears in the list.
+```
+Confirm your device appears in the list.
 
 4. **Start the mock API**
-   - Follow `mock-api/Readme.md` and make sure the API server is running.
+    - Follow `mock-api/Readme.md` and make sure the API server is running.
 
 5. **Set correct API base URL for physical device**
-   - `localhost` will not work on a real phone.
-   - In `lib/apis/api_constants.dart`, set `baseUrl` to your computer's local network IP, for example:
-   ```dart
+    - `localhost` will not work on a real phone.
+    - In `lib/apis/api_constants.dart`, set `baseUrl` to your computer's local network IP, for example:
+```dart
    static const String baseUrl = "http://192.168.1.10:3000";
-   ```
-   - Ensure both phone and computer are on the same Wi-Fi network.
+```
+- Ensure both phone and computer are on the same Wi-Fi network.
 
 6. **Run the app on the connected device**
-   ```bash
+```bash
    flutter run
-   ```
+```
 
 7. **(Optional) Select a specific device**
-   ```bash
+```bash
    flutter run -d <device_id>
-   ```
+```
 
 ## Main App Flow
 
@@ -152,18 +152,6 @@ Use these steps to run the app on a real Android device.
 5. Home loads tasks assigned to that user.
 6. User can search, filter, add, edit, and delete tasks.
 
-## Screenshots
+## Screenshots & Demo
 
-Add your application screenshots in this section.
-
-- Login Screen
-- Home Screen
-- Add Task Screen
-- Task Details Screen
-- Edit Task Screen
-
-## Video Demo
-
-Add your Google Drive video link here:
-
-- [App Demo Video](https://drive.google.com/)
+[View Screenshots and Video Demo on Google Drive](https://drive.google.com/drive/folders/1j78OvYOBnLHwWnMDxzQHmo5zAhuFRwfW?usp=sharing)
