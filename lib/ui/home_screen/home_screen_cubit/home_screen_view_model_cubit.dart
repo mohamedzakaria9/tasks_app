@@ -76,6 +76,7 @@ class HomeScreenViewModelCubit extends Cubit<HomeScreenViewModelState> {
       sharedPrefServices.token!,
       sharedPrefServices.id!,
     );
+    print("this is the id used in the get task ${sharedPrefServices.id}");
     if (response?.statusCode == 200) {
       List<TaskResponse> tasks = (jsonDecode(response!.body) as List)
           .map((task) => TaskResponse.fromJson(task))

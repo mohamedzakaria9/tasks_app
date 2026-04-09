@@ -42,7 +42,7 @@ class MyApp extends StatelessWidget {
         AppRoutes.loginScreen : (context) => LoginScreen(sharedPrefServices),
         AppRoutes.homeScreen: (context) => HomeScreenView(sharedPrefServices),
         AppRoutes.addTaskScreen: (context) => AddTaskScreenView(sharedPrefServices),
-        AppRoutes.taskDetailsScreen : (context) => TaskDetailsScreenView()
+        AppRoutes.taskDetailsScreen : (context) => TaskDetailsScreenView(sharedPrefServices)
       },
     );
   }

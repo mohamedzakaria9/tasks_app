@@ -45,6 +45,7 @@ class _HomeScreenViewState extends State<HomeScreenView> {
               onPressed: () {
                 ///todo:
                 ///implement the logout functionality
+                Navigator.pushNamed(context, AppRoutes.loginScreen);
               },
               icon: Image.asset(AppImages.logoutIcon),
             ),
