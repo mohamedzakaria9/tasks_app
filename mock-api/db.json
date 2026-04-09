@@ -1,0 +1,276 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "email": "test@example.com",
+      "password": "123456",
+      "name": "John Doe"
+    },
+    {
+      "email": "alice@example.com",
+      "password": "$2a$10$L/WQfe/8N3SHlbYwO/KZBuK21fci0EeWXjpfBO3C8yEKcweeC9gwO",
+      "name": "Alice",
+      "id": 2
+    },
+    {
+      "email": "mohamed@gmail.com",
+      "password": "$2a$10$HjzndIKmOySfzgerQgvi8eaL2T/USwUdNDNfUFSlrMtwN.anM86/a",
+      "name": "Mohamed",
+      "id": 3
+    },
+    {
+      "email": "ahmed@gmail.com",
+      "password": "$2a$10$JAt9nt3WnAoCeeZO5fMIJODdsh6yNkrrYx7uiZMZYS0S62RlJmoIO",
+      "name": "Ahmed",
+      "id": 4
+    },
+    {
+      "email": "khaled@gmail.com",
+      "password": "$2a$10$8oscF.pFY6cbn.zCbXFjRuOapgoWhhiOHOrHtgT4GNP7xa0Oicz5y",
+      "name": "Khaled",
+      "id": 5
+    }
+  ],
+  "tasks": [
+    {
+      "id": 1,
+      "title": "Buy groceries",
+      "description": "Milk, Bread, Eggs",
+      "status": "Todo",
+      "priority": "Medium",
+      "dueDate": "2026-04-10",
+      "assignedTo": 1,
+      "userId": 1
+    },
+    {
+      "id": 2,
+      "title": "Fix home appliances",
+      "description": "Fix the kitchen sink and replace light bulbs",
+      "status": "In Progress",
+      "priority": "High",
+      "dueDate": "2026-04-11",
+      "assignedTo": 1,
+      "userId": 1
+    },
+    {
+      "id": 3,
+      "title": "Pay bills",
+      "description": "Pay electricity and internet bills",
+      "status": "Todo",
+      "priority": "High",
+      "dueDate": "2026-04-12",
+      "assignedTo": 1,
+      "userId": 1
+    },
+    {
+      "id": 4,
+      "title": "Book dentist appointment",
+      "description": "Schedule a routine checkup with the dentist",
+      "status": "Done",
+      "priority": "Low",
+      "dueDate": "2026-04-08",
+      "assignedTo": 1,
+      "userId": 1
+    },
+    {
+      "id": 5,
+      "title": "Read book",
+      "description": "Finish reading Clean Code by Robert Martin",
+      "status": "In Progress",
+      "priority": "Medium",
+      "dueDate": "2026-04-20",
+      "assignedTo": 1,
+      "userId": 1
+    },
+    {
+      "id": 6,
+      "title": "Fix login bug",
+      "description": "Resolve the authentication issue on the login screen",
+      "status": "In Progress",
+      "priority": "High",
+      "dueDate": "2026-04-10",
+      "assignedTo": 2,
+      "userId": 2
+    },
+    {
+      "id": 7,
+      "title": "Design dashboard UI",
+      "description": "Create the main dashboard wireframes and send for review",
+      "status": "Todo",
+      "priority": "Medium",
+      "dueDate": "2026-04-12",
+      "assignedTo": 2,
+      "userId": 2
+    },
+    {
+      "id": 8,
+      "title": "Write unit tests",
+      "description": "Write unit tests for the API manager and cubits",
+      "status": "Done",
+      "priority": "Low",
+      "dueDate": "2026-04-08",
+      "assignedTo": 2,
+      "userId": 2
+    },
+    {
+      "id": 9,
+      "title": "Code review",
+      "description": "Review pull requests from the team and leave comments",
+      "status": "In Progress",
+      "priority": "Medium",
+      "dueDate": "2026-04-09",
+      "assignedTo": 2,
+      "userId": 2
+    },
+    {
+      "id": 10,
+      "title": "Update dependencies",
+      "description": "Update all outdated Flutter packages to latest versions",
+      "status": "Done",
+      "priority": "Low",
+      "dueDate": "2026-04-07",
+      "assignedTo": 2,
+      "userId": 2
+    },
+    {
+      "title": "Setup CI/CD pipeline",
+      "description": "Configure GitHub Actions for automated testing and deployment",
+      "status": "Todo",
+      "priority": "Medium",
+      "dueDate": "2026-04-18",
+      "assignedTo": 3,
+      "userId": 3,
+      "id": 11
+    },
+    {
+      "id": 12,
+      "title": "Refactor API service",
+      "description": "Clean up the API service class and remove duplicate code",
+      "status": "In Progress",
+      "priority": "Medium",
+      "dueDate": "2026-04-14",
+      "assignedTo": 3,
+      "userId": 3
+    },
+    {
+      "id": 13,
+      "title": "Implement push notifications",
+      "description": "Add Firebase push notifications to the Flutter app",
+      "status": "Todo",
+      "priority": "High",
+      "dueDate": "2026-04-20",
+      "assignedTo": 3,
+      "userId": 3
+    },
+    {
+      "id": 14,
+      "title": "Write API documentation",
+      "description": "Document all API endpoints with request and response examples",
+      "status": "Done",
+      "priority": "Low",
+      "dueDate": "2026-04-07",
+      "assignedTo": 3,
+      "userId": 3
+    },
+    {
+      "id": 16,
+      "title": "Design onboarding screens",
+      "description": "Create UI designs for the app onboarding flow",
+      "status": "Todo",
+      "priority": "Medium",
+      "dueDate": "2026-04-15",
+      "assignedTo": 4,
+      "userId": 4
+    },
+    {
+      "id": 17,
+      "title": "Integrate payment gateway",
+      "description": "Add Stripe payment integration to the checkout screen",
+      "status": "In Progress",
+      "priority": "High",
+      "dueDate": "2026-04-13",
+      "assignedTo": 4,
+      "userId": 4
+    },
+    {
+      "id": 18,
+      "title": "Fix dark mode issues",
+      "description": "Several UI components are not rendering correctly in dark mode",
+      "status": "Todo",
+      "priority": "Medium",
+      "dueDate": "2026-04-16",
+      "assignedTo": 4,
+      "userId": 4
+    },
+    {
+      "id": 19,
+      "title": "Optimize app performance",
+      "description": "Reduce app startup time and improve scroll performance",
+      "status": "Done",
+      "priority": "High",
+      "dueDate": "2026-04-08",
+      "assignedTo": 4,
+      "userId": 4
+    },
+    {
+      "id": 20,
+      "title": "Add localization support",
+      "description": "Add Arabic and French language support to the app",
+      "status": "Todo",
+      "priority": "Low",
+      "dueDate": "2026-04-25",
+      "assignedTo": 4,
+      "userId": 4
+    },
+    {
+      "id": 21,
+      "title": "Setup database backup",
+      "description": "Configure automated daily backups for the production database",
+      "status": "Todo",
+      "priority": "High",
+      "dueDate": "2026-04-12",
+      "assignedTo": 5,
+      "userId": 5
+    },
+    {
+      "id": 22,
+      "title": "Review security audit",
+      "description": "Go through the security audit report and fix critical issues",
+      "status": "In Progress",
+      "priority": "High",
+      "dueDate": "2026-04-11",
+      "assignedTo": 5,
+      "userId": 5
+    },
+    {
+      "id": 23,
+      "title": "Update privacy policy",
+      "description": "Update the app privacy policy to comply with GDPR regulations",
+      "status": "Done",
+      "priority": "Medium",
+      "dueDate": "2026-04-07",
+      "assignedTo": 5,
+      "userId": 5
+    },
+    {
+      "id": 24,
+      "title": "Fix memory leak",
+      "description": "Identify and fix the memory leak in the image loading service",
+      "status": "In Progress",
+      "priority": "High",
+      "dueDate": "2026-04-10",
+      "assignedTo": 5,
+      "userId": 5
+    },
+    {
+      "id": 25,
+      "title": "Prepare app store release",
+      "description": "Prepare screenshots, description and release notes for the app store",
+      "status": "Todo",
+      "priority": "Medium",
+      "dueDate": "2026-04-22",
+      "assignedTo": 5,
+      "userId": 5
+    }
+  ]
+}
