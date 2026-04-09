@@ -29,18 +29,25 @@ class _AddTaskScreenViewState extends State<AddTaskScreenView> {
   final formKey = GlobalKey<FormState>();
   bool isEdit = false;
   TaskResponse? task;
+  bool _initialized = false;
 
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    if (!_initialized) {
+      task = ModalRoute.of(context)!.settings.arguments as TaskResponse?;
+      isEdit = task != null;
+      if (isEdit) {
+        widget.titleController.text = task!.title!;
+        widget.descriptionController.text = task!.description!;
+        widget.dateController.text = task!.dueDate!;
+      }
+      _initialized = true;
+    }
+  }
   @override
   Widget build(BuildContext context) {
     // we will check if task is sent then we are in the edit
-    task = ModalRoute.of(context)!.settings.arguments as TaskResponse?;
-    bool isEdit = task != null;
-
-    if (isEdit) {
-      widget.dateController.text = task!.dueDate!;
-      widget.titleController.text = task!.title!;
-      widget.descriptionController.text = task!.description!;
-    }
     var width = MediaQuery.of(context).size.width;
     var height = MediaQuery.of(context).size.height;
 
@@ -48,17 +55,8 @@ class _AddTaskScreenViewState extends State<AddTaskScreenView> {
       create: (context) {
         var cubit = AddTaskScreenViewModelCubit();
         if (isEdit) {
-          print("print from the edit");
-          print(task!.status!);
-          print(task!.priority!);
-          print("print cubit variables");
-          print(cubit.selectedStatus);
-          print(cubit.selectedPriority);
           cubit.selectedStatus = task!.status!;
           cubit.selectedPriority = task!.priority!;
-          print("this is after the cubit variables reset");
-          print(cubit.selectedStatus);
-          print(cubit.selectedPriority);
         }
         return cubit;
       },
